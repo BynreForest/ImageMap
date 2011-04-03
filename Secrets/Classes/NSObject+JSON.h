@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2009-2010 Stig Brautaset. All rights reserved.
+ Copyright (C) 2009 Stig Brautaset. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -27,43 +27,35 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- @mainpage A strict JSON parser and generator for Objective-C
+#import <Foundation/Foundation.h>
 
- JSON (JavaScript Object Notation) is a lightweight data-interchange
- format. This framework provides two apis for parsing and generating
- JSON. One standard object-based and a higher level api consisting of
- categories added to existing Objective-C classes.
+#pragma mark JSON Writing
 
- This framework does its best to be as strict as possible, both in what it accepts and what it generates. For example, it does not support trailing commas in arrays or objects. Nor does it support embedded comments, or anything else not in the JSON specification. This is considered a feature. 
-  
- @section Links
+/// Adds JSON generation to NSArray
+@interface NSArray (NSArray_SBJsonWriting)
 
- @li <a href="http://stig.github.com/json-framework">Project home page</a>.
- @li Online version of the <a href="http://stig.github.com/json-framework/api">API documentation</a>. 
- 
-*/
+/// Returns a string containing the receiver encoded in JSON.
+- (NSString *)JSONRepresentation;
+
+@end
 
 
-// This setting of 1 is best if you copy the source into your project. 
-// The build transforms the 1 to a 0 when building the framework and static lib.
+/// Adds JSON generation to NSArray
+@interface NSDictionary (NSDictionary_SBJsonWriting)
 
-#if 1
+/// Returns a string containing the receiver encoded in JSON.
+- (NSString *)JSONRepresentation;
 
-#import "SBJsonParser.h"
-#import "SBJsonWriter.h"
-#import "SBJsonStreamWriter.h"
-#import "SBJsonStreamParser.h"
-#import "SBJsonStreamParserAdapter.h"
-#import "NSObject+JSON.h"
+@end
 
-#else
+#pragma mark JSON Parsing
 
-#import <JSON/SBJsonParser.h>
-#import <JSON/SBJsonWriter.h>
-#import <JSON/SBJsonStreamParser.h>
-#import <JSON/SBJsonStreamParserAdapter.h>
-#import <JSON/SBJsonStreamWriter.h>
-#import <JSON/NSObject+JSON.h>
+/// Adds JSON parsing methods to NSString
+@interface NSString (NSString_SBJsonParsing)
 
-#endif
+/// Returns the NSDictionary or NSArray represented by the receiver's JSON representation, or nil on error
+- (id)JSONValue;
+
+@end
+
+
