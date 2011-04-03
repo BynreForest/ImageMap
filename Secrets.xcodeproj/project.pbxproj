@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		626DAEA61347498100FC9C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAEA51347498100FC9C6D /* UIKit.framework */; };
+		626DAEA81347498100FC9C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAEA71347498100FC9C6D /* Foundation.framework */; };
+		626DAEAA1347498100FC9C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAEA91347498100FC9C6D /* CoreGraphics.framework */; };
+		626DAEAC1347498100FC9C6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAEAB1347498100FC9C6D /* CoreData.framework */; };
+		626DAEB21347498100FC9C6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 626DAEB01347498100FC9C6D /* InfoPlist.strings */; };
+		626DAEB51347498100FC9C6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEB41347498100FC9C6D /* main.m */; };
+		626DAEB81347498100FC9C6D /* SecretsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEB71347498100FC9C6D /* SecretsAppDelegate.m */; };
+		626DAEBB1347498100FC9C6D /* Secrets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEB91347498100FC9C6D /* Secrets.xcdatamodeld */; };
+		626DAEBF1347498100FC9C6D /* SecretsAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEBE1347498100FC9C6D /* SecretsAppDelegate_iPhone.m */; };
+		626DAEC21347498100FC9C6D /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626DAEC01347498100FC9C6D /* MainWindow_iPhone.xib */; };
+		626DAEC61347498100FC9C6D /* SecretsAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEC51347498100FC9C6D /* SecretsAppDelegate_iPad.m */; };
+		626DAEC91347498100FC9C6D /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626DAEC71347498100FC9C6D /* MainWindow_iPad.xib */; };
+		626DAED8134749DF00FC9C6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAED7134749DF00FC9C6D /* MapKit.framework */; };
+		626DAEDE13474ACA00FC9C6D /* MapiPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEDC13474ACA00FC9C6D /* MapiPhoneViewController.m */; };
+		626DAEDF13474ACA00FC9C6D /* MapiPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626DAEDD13474ACA00FC9C6D /* MapiPhoneViewController.xib */; };
+		626DAEE313474BA000FC9C6D /* MapiPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEE113474BA000FC9C6D /* MapiPadViewController.m */; };
+		626DAEE413474BA000FC9C6D /* MapiPadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626DAEE213474BA000FC9C6D /* MapiPadViewController.xib */; };
+		626DAEF51348FD8B00FC9C6D /* SecretEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAEF41348FD8B00FC9C6D /* SecretEntity.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		626DAEA11347498100FC9C6D /* Secrets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secrets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		626DAEA51347498100FC9C6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		626DAEA71347498100FC9C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		626DAEA91347498100FC9C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		626DAEAB1347498100FC9C6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		626DAEAF1347498100FC9C6D /* Secrets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Secrets-Info.plist"; sourceTree = "<group>"; };
+		626DAEB11347498100FC9C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		626DAEB31347498100FC9C6D /* Secrets-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Secrets-Prefix.pch"; sourceTree = "<group>"; };
+		626DAEB41347498100FC9C6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		626DAEB61347498100FC9C6D /* SecretsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecretsAppDelegate.h; sourceTree = "<group>"; };
+		626DAEB71347498100FC9C6D /* SecretsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecretsAppDelegate.m; sourceTree = "<group>"; };
+		626DAEBA1347498100FC9C6D /* Secrets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Secrets.xcdatamodel; sourceTree = "<group>"; };
+		626DAEBD1347498100FC9C6D /* SecretsAppDelegate_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SecretsAppDelegate_iPhone.h; path = iPhone/SecretsAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		626DAEBE1347498100FC9C6D /* SecretsAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SecretsAppDelegate_iPhone.m; path = iPhone/SecretsAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		626DAEC11347498100FC9C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		626DAEC41347498100FC9C6D /* SecretsAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SecretsAppDelegate_iPad.h; path = iPad/SecretsAppDelegate_iPad.h; sourceTree = "<group>"; };
+		626DAEC51347498100FC9C6D /* SecretsAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SecretsAppDelegate_iPad.m; path = iPad/SecretsAppDelegate_iPad.m; sourceTree = "<group>"; };
+		626DAEC81347498100FC9C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+		626DAED7134749DF00FC9C6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		626DAEDB13474ACA00FC9C6D /* MapiPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapiPhoneViewController.h; sourceTree = "<group>"; };
+		626DAEDC13474ACA00FC9C6D /* MapiPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapiPhoneViewController.m; sourceTree = "<group>"; };
+		626DAEDD13474ACA00FC9C6D /* MapiPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapiPhoneViewController.xib; sourceTree = "<group>"; };
+		626DAEE013474BA000FC9C6D /* MapiPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapiPadViewController.h; sourceTree = "<group>"; };
+		626DAEE113474BA000FC9C6D /* MapiPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapiPadViewController.m; sourceTree = "<group>"; };
+		626DAEE213474BA000FC9C6D /* MapiPadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapiPadViewController.xib; sourceTree = "<group>"; };
+		626DAEF31348FD8B00FC9C6D /* SecretEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretEntity.h; sourceTree = "<group>"; };
+		626DAEF41348FD8B00FC9C6D /* SecretEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretEntity.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		626DAE9E1347498100FC9C6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626DAED8134749DF00FC9C6D /* MapKit.framework in Frameworks */,
+				626DAEA61347498100FC9C6D /* UIKit.framework in Frameworks */,
+				626DAEA81347498100FC9C6D /* Foundation.framework in Frameworks */,
+				626DAEAA1347498100FC9C6D /* CoreGraphics.framework in Frameworks */,
+				626DAEAC1347498100FC9C6D /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		626DAE961347498000FC9C6D = {
+			isa = PBXGroup;
+			children = (
+				626DAEAD1347498100FC9C6D /* Secrets */,
+				626DAEA41347498100FC9C6D /* Frameworks */,
+				626DAEA21347498100FC9C6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		626DAEA21347498100FC9C6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				626DAEA11347498100FC9C6D /* Secrets.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		626DAEA41347498100FC9C6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				626DAED7134749DF00FC9C6D /* MapKit.framework */,
+				626DAEA51347498100FC9C6D /* UIKit.framework */,
+				626DAEA71347498100FC9C6D /* Foundation.framework */,
+				626DAEA91347498100FC9C6D /* CoreGraphics.framework */,
+				626DAEAB1347498100FC9C6D /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		626DAEAD1347498100FC9C6D /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				626DAEF31348FD8B00FC9C6D /* SecretEntity.h */,
+				626DAEF41348FD8B00FC9C6D /* SecretEntity.m */,
+				626DAEB61347498100FC9C6D /* SecretsAppDelegate.h */,
+				626DAEB71347498100FC9C6D /* SecretsAppDelegate.m */,
+				626DAEB91347498100FC9C6D /* Secrets.xcdatamodeld */,
+				626DAEBC1347498100FC9C6D /* iPhone */,
+				626DAEC31347498100FC9C6D /* iPad */,
+				626DAEAE1347498100FC9C6D /* Supporting Files */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
+		626DAEAE1347498100FC9C6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				626DAEAF1347498100FC9C6D /* Secrets-Info.plist */,
+				626DAEB01347498100FC9C6D /* InfoPlist.strings */,
+				626DAEB31347498100FC9C6D /* Secrets-Prefix.pch */,
+				626DAEB41347498100FC9C6D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		626DAEBC1347498100FC9C6D /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				626DAED9134749FB00FC9C6D /* Map */,
+				626DAEBD1347498100FC9C6D /* SecretsAppDelegate_iPhone.h */,
+				626DAEBE1347498100FC9C6D /* SecretsAppDelegate_iPhone.m */,
+				626DAEC01347498100FC9C6D /* MainWindow_iPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		626DAEC31347498100FC9C6D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				626DAEDA13474A5200FC9C6D /* Map */,
+				626DAEC41347498100FC9C6D /* SecretsAppDelegate_iPad.h */,
+				626DAEC51347498100FC9C6D /* SecretsAppDelegate_iPad.m */,
+				626DAEC71347498100FC9C6D /* MainWindow_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		626DAED9134749FB00FC9C6D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				626DAEDB13474ACA00FC9C6D /* MapiPhoneViewController.h */,
+				626DAEDC13474ACA00FC9C6D /* MapiPhoneViewController.m */,
+				626DAEDD13474ACA00FC9C6D /* MapiPhoneViewController.xib */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		626DAEDA13474A5200FC9C6D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				626DAEE013474BA000FC9C6D /* MapiPadViewController.h */,
+				626DAEE113474BA000FC9C6D /* MapiPadViewController.m */,
+				626DAEE213474BA000FC9C6D /* MapiPadViewController.xib */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		626DAEA01347498100FC9C6D /* Secrets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 626DAECC1347498100FC9C6D /* Build configuration list for PBXNativeTarget "Secrets" */;
+			buildPhases = (
+				626DAE9D1347498100FC9C6D /* Sources */,
+				626DAE9E1347498100FC9C6D /* Frameworks */,
+				626DAE9F1347498100FC9C6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Secrets;
+			productName = Secrets;
+			productReference = 626DAEA11347498100FC9C6D /* Secrets.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		626DAE981347498000FC9C6D /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 626DAE9B1347498000FC9C6D /* Build configuration list for PBXProject "Secrets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 626DAE961347498000FC9C6D;
+			productRefGroup = 626DAEA21347498100FC9C6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				626DAEA01347498100FC9C6D /* Secrets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		626DAE9F1347498100FC9C6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626DAEB21347498100FC9C6D /* InfoPlist.strings in Resources */,
+				626DAEC21347498100FC9C6D /* MainWindow_iPhone.xib in Resources */,
+				626DAEC91347498100FC9C6D /* MainWindow_iPad.xib in Resources */,
+				626DAEDF13474ACA00FC9C6D /* MapiPhoneViewController.xib in Resources */,
+				626DAEE413474BA000FC9C6D /* MapiPadViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		626DAE9D1347498100FC9C6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626DAEB51347498100FC9C6D /* main.m in Sources */,
+				626DAEB81347498100FC9C6D /* SecretsAppDelegate.m in Sources */,
+				626DAEBB1347498100FC9C6D /* Secrets.xcdatamodeld in Sources */,
+				626DAEBF1347498100FC9C6D /* SecretsAppDelegate_iPhone.m in Sources */,
+				626DAEC61347498100FC9C6D /* SecretsAppDelegate_iPad.m in Sources */,
+				626DAEDE13474ACA00FC9C6D /* MapiPhoneViewController.m in Sources */,
+				626DAEE313474BA000FC9C6D /* MapiPadViewController.m in Sources */,
+				626DAEF51348FD8B00FC9C6D /* SecretEntity.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		626DAEB01347498100FC9C6D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				626DAEB11347498100FC9C6D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		626DAEC01347498100FC9C6D /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				626DAEC11347498100FC9C6D /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		626DAEC71347498100FC9C6D /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				626DAEC81347498100FC9C6D /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		626DAECA1347498100FC9C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		626DAECB1347498100FC9C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		626DAECD1347498100FC9C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Secrets/Secrets-Prefix.pch";
+				INFOPLIST_FILE = "Secrets/Secrets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		626DAECE1347498100FC9C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Secrets/Secrets-Prefix.pch";
+				INFOPLIST_FILE = "Secrets/Secrets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		626DAE9B1347498000FC9C6D /* Build configuration list for PBXProject "Secrets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				626DAECA1347498100FC9C6D /* Debug */,
+				626DAECB1347498100FC9C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		626DAECC1347498100FC9C6D /* Build configuration list for PBXNativeTarget "Secrets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				626DAECD1347498100FC9C6D /* Debug */,
+				626DAECE1347498100FC9C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		626DAEB91347498100FC9C6D /* Secrets.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				626DAEBA1347498100FC9C6D /* Secrets.xcdatamodel */,
+			);
+			currentVersion = 626DAEBA1347498100FC9C6D /* Secrets.xcdatamodel */;
+			path = Secrets.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 626DAE981347498000FC9C6D /* Project object */;
+}
