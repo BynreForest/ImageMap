@@ -11,6 +11,7 @@
 #import "MapiPhoneViewController.h"
 
 @implementation SecretsAppDelegate
+@synthesize location;
 
 
 @synthesize window=_window;
@@ -45,6 +46,8 @@
         
 	}
     
+    location = [[Location alloc] init];
+    [location getLocation];
     
     return YES;
 }

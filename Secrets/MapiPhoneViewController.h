@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-
+#import "Model.h"
 
 @interface MapiPhoneViewController : UIViewController {
     IBOutlet MKMapView *mapView;
+    Model *model;
     
 }
 

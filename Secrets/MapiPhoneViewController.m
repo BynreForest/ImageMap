@@ -40,6 +40,8 @@
 {
     [super viewDidLoad];
     
+    model = [[Model alloc] init];
+    
     /*
      show all world in view
      */

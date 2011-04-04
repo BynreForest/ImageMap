@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
 @class MapiPadViewController;
 @class MapiPhoneViewController;
@@ -16,6 +17,7 @@
      **/
     MapiPadViewController *mapiPadVC;
     MapiPhoneViewController *mapiPhoneVC;
+    Location *location;
 
 }
 
@@ -24,6 +26,7 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, retain) Location *location;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
