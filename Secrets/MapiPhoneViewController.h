@@ -10,12 +10,13 @@
 #import <MapKit/MapKit.h>
 #import "Model.h"
 
-@interface MapiPhoneViewController : UIViewController {
-    IBOutlet MKMapView *mapView;
+@interface MapiPhoneViewController : UIViewController <MKMapViewDelegate> {
+    MKMapView *mapView;
     Model *model;
+    NSMutableArray *annotationArray;
     
 }
 
-@property (nonatomic, retain)IBOutlet MKMapView *mapView;
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
 @end

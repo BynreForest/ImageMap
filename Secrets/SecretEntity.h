@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
 @property (nonatomic, retain) NSString * category;
-@property (nonatomic, retain) NSString * desc;
+@property (nonatomic, retain) NSString * descriptions;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * photo_bool;
 

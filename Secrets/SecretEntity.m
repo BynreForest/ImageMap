@@ -14,7 +14,7 @@
 @dynamic lat;
 @dynamic lon;
 @dynamic category;
-@dynamic desc;
+@dynamic descriptions;
 @dynamic date;
 @dynamic photo_bool;
 

@@ -37,6 +37,8 @@
 		626DAF75134933CA00FC9C6D /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAF74134933CA00FC9C6D /* Model.m */; };
 		626DAFB0134A122800FC9C6D /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAFAF134A122600FC9C6D /* Location.m */; };
 		626DAFB2134A125200FC9C6D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAFB1134A125200FC9C6D /* CoreLocation.framework */; };
+		626DAFBD134A3D6E00FC9C6D /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAFBC134A3D6B00FC9C6D /* Annotation.m */; };
+		626DAFCF134ABE4B00FC9C6D /* sf.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DAFCE134ABE4B00FC9C6D /* sf.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,9 @@
 		626DAFAE134A122500FC9C6D /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		626DAFAF134A122600FC9C6D /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		626DAFB1134A125200FC9C6D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		626DAFBB134A3D6A00FC9C6D /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		626DAFBC134A3D6B00FC9C6D /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		626DAFCE134ABE4B00FC9C6D /* sf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sf.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +148,10 @@
 		626DAEAD1347498100FC9C6D /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
+				626DAFD0134ABE5B00FC9C6D /* images */,
 				626DAF561349182C00FC9C6D /* JSON */,
+				626DAFBB134A3D6A00FC9C6D /* Annotation.h */,
+				626DAFBC134A3D6B00FC9C6D /* Annotation.m */,
 				626DAFAE134A122500FC9C6D /* Location.h */,
 				626DAFAF134A122600FC9C6D /* Location.m */,
 				626DAF73134933CA00FC9C6D /* Model.h */,
@@ -240,6 +248,14 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		626DAFD0134ABE5B00FC9C6D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				626DAFCE134ABE4B00FC9C6D /* sf.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +308,7 @@
 				626DAEC91347498100FC9C6D /* MainWindow_iPad.xib in Resources */,
 				626DAEDF13474ACA00FC9C6D /* MapiPhoneViewController.xib in Resources */,
 				626DAEE413474BA000FC9C6D /* MapiPadViewController.xib in Resources */,
+				626DAFCF134ABE4B00FC9C6D /* sf.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +338,7 @@
 				626DAF721349182C00FC9C6D /* SBJsonWriter.m in Sources */,
 				626DAF75134933CA00FC9C6D /* Model.m in Sources */,
 				626DAFB0134A122800FC9C6D /* Location.m in Sources */,
+				626DAFBD134A3D6E00FC9C6D /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -46,9 +46,9 @@
         
 	}
     
-    location = [[Location alloc] init];
+   /* location = [[Location alloc] init];
     [location getLocation];
-    
+    */
     return YES;
 }
 
