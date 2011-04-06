@@ -113,6 +113,12 @@
     return nil;
 }
 
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    NSLog(@"Log this");
+
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
