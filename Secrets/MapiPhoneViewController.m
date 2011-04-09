@@ -1,31 +1,28 @@
 //
-//  MapiPhoneViewController.m
-//  Secrets
+//  mapViewController.m
+//  map
 //
-//  Created by Gaynor, Brendan on 4/2/11.
+//  Created by Gaynor, Brendan on 4/6/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "MapiPhoneViewController.h"
-#import "Annotation.h"
+#import "BridgeAnnotation.h"
+
+enum
+{
+    kCityAnnotationIndex = 0,
+    kBridgeAnnotationIndex
+};
 
 
 @implementation MapiPhoneViewController
 @synthesize mapView;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize mapAnnotations;
 
 - (void)dealloc
 {
-    mapView.delegate = nil;
-    [mapView release];
+    NSLog(@"delloc Instance: %p", self);
     [super dealloc];
 }
 
@@ -39,92 +36,50 @@
 
 #pragma mark - View lifecycle
 
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    self.mapView.mapType = MKMapTypeSatellite;   // also MKMapTypeSatellite or MKMapTypeHybrid
-    
-    mapView.delegate = self;
-    
     // create out annotations array (in this example only 2)
-    annotationArray = [[NSMutableArray alloc] initWithCapacity:1];
-
+    self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
     
-   // model = [[Model alloc] init];
+    // annotation for Golden Gate Bridge
+    BridgeAnnotation *bridgeAnnotation = [[BridgeAnnotation alloc] init];
+    [self.mapAnnotations insertObject:bridgeAnnotation atIndex:0];
+    [bridgeAnnotation release];
     
-    /*
-     show all world in view
-     */
-    /*
-    MKCoordinateRegion region;
-    region.center.latitude=0.0f;
-    region.center.longitude=0.0f;
-    region.span.latitudeDelta=180.0f;
-    region.span.longitudeDelta=360.0f;
-    [mapView setRegion:region];
-    
-    [mapView setRegion:[mapView regionThatFits:region] animated:TRUE];
-     
-     */
-    // Do any additional setup after loading the view from its nib.
-    
-    NSLog(@"CREATING Annotation View1");
-    // annotation for the City of San Francisco
-    Annotation *sannotation = [[Annotation alloc] init];
-   // [mapView addAnnotation:annotation];
-    //[annotation release];
-    
-    [annotationArray addObject:sannotation];
-    
-    [sannotation release];
-
-    
-    /**
-	 mapView adds the annotationsArray which holds the ErbituxAnnotations
-	 **/
-	[self.mapView addAnnotations:annotationArray];
-    
-    
-     NSLog(@"CREATING Annotation View1A");
+    [self gotoLocation];
 }
 
-#pragma mark -
-#pragma mark MKMapViewDelegate
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+- (void)gotoLocation
 {
+    NSLog(@"1");
+    mapView.delegate = self;
+    // start off by default in San Francisco
+    MKCoordinateRegion newRegion;
+    newRegion.center.latitude = 37.786996;
+    newRegion.center.longitude = -122.440100;
+    newRegion.span.latitudeDelta = 0.112872;
+    newRegion.span.longitudeDelta = 0.109863;
     
-    NSLog(@"CREATING Annotation View2");
+    [self.mapView setRegion:newRegion animated:YES];
     
-    
-    MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"AnnotationIdentifier"];
-    if (pin == nil)
-    {                
-        NSLog(@"CREATING Annotation View3");
-                
-        pin.canShowCallout = NO;
-        pin.animatesDrop = YES;
-        UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"flag_finish"]];
-        [pin addSubview:iv];
-        //pin.image = [UIImage imageNamed:@"flag_finish"];
-        return pin;
-                
-    }
-    
-    return nil;
+    [self.mapView addAnnotations:self.mapAnnotations];
+   //  NSLog(@"self.mapAnnotations %@", self.mapView);
 }
 
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    NSLog(@"Log this");
-
+    NSLog(@"hit delegate");
+    return  nil;
 }
+
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    self.mapView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

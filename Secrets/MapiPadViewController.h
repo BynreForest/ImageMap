@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MapiPadViewController : UIViewController {
-    IBOutlet MKMapView *mapView;
+
+@interface MapiPadViewController : UIViewController <MKMapViewDelegate>  {
+    MKMapView *mapView;
+    NSMutableArray *mapAnnotations;
     
 }
 

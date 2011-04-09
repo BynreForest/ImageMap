@@ -7,6 +7,7 @@
 //
 
 #import "MapiPadViewController.h"
+#import "BridgeAnnotation.h"
 
 
 @implementation MapiPadViewController
@@ -38,7 +39,10 @@
 
 - (void)viewDidLoad
 {
+    self.mapView.delegate = self;
     [super viewDidLoad];
+    
+    mapAnnotations = [[NSMutableArray alloc] init];
     
     /*
      show all world in view
@@ -53,7 +57,20 @@
     [mapView setRegion:[mapView regionThatFits:region] animated:TRUE];
     
     // Do any additional setup after loading the view from its nib.
+    
+    BridgeAnnotation *bridgeAnnotation = [[BridgeAnnotation alloc] init];
+    //[self.mapView addAnnotation:bridgeAnnotation];
+    [mapAnnotations addObject:bridgeAnnotation];
+    
+    [self.mapView addAnnotations:mapAnnotations];
 }
+
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    NSLog(@"hit delegate");
+    return  nil;
+}
+
 
 - (void)viewDidUnload
 {

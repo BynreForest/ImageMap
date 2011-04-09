@@ -39,6 +39,7 @@
 		626DAFB2134A125200FC9C6D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAFB1134A125200FC9C6D /* CoreLocation.framework */; };
 		626DAFBD134A3D6E00FC9C6D /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAFBC134A3D6B00FC9C6D /* Annotation.m */; };
 		626DAFCF134ABE4B00FC9C6D /* sf.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DAFCE134ABE4B00FC9C6D /* sf.png */; };
+		62EE67A4134D4E56003BE97C /* BridgeAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE67A3134D4E54003BE97C /* BridgeAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,8 @@
 		626DAFBB134A3D6A00FC9C6D /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		626DAFBC134A3D6B00FC9C6D /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		626DAFCE134ABE4B00FC9C6D /* sf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sf.png; sourceTree = "<group>"; };
+		62EE67A2134D4E54003BE97C /* BridgeAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeAnnotation.h; sourceTree = "<group>"; };
+		62EE67A3134D4E54003BE97C /* BridgeAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 				626DAFBC134A3D6B00FC9C6D /* Annotation.m */,
 				626DAFAE134A122500FC9C6D /* Location.h */,
 				626DAFAF134A122600FC9C6D /* Location.m */,
+				62EE67A2134D4E54003BE97C /* BridgeAnnotation.h */,
+				62EE67A3134D4E54003BE97C /* BridgeAnnotation.m */,
 				626DAF73134933CA00FC9C6D /* Model.h */,
 				626DAF74134933CA00FC9C6D /* Model.m */,
 				626DAEF31348FD8B00FC9C6D /* SecretEntity.h */,
@@ -339,6 +344,7 @@
 				626DAF75134933CA00FC9C6D /* Model.m in Sources */,
 				626DAFB0134A122800FC9C6D /* Location.m in Sources */,
 				626DAFBD134A3D6E00FC9C6D /* Annotation.m in Sources */,
+				62EE67A4134D4E56003BE97C /* BridgeAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

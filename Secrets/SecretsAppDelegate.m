@@ -11,7 +11,6 @@
 #import "MapiPhoneViewController.h"
 
 @implementation SecretsAppDelegate
-@synthesize location;
 
 
 @synthesize window=_window;
@@ -28,21 +27,27 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 	{
 		// load the content controller object for Phone-based devices
-        mapiPhoneVC = [[MapiPhoneViewController alloc] init];
+        MapiPhoneViewController *mapiPhoneVC = [[MapiPhoneViewController alloc] init];
         [self.window addSubview:mapiPhoneVC.view];
         [self.window makeKeyAndVisible];
         
-        [mapiPhoneVC release];
+        /**
+         releasing the view controller was giving deallocated instance
+         **/
+       // [mapiPhoneVC release];
         
 	}
 	else
 	{
 		// load the content controller object for Pad-based devices
-        mapiPadVC = [[MapiPadViewController alloc] init];
+        MapiPadViewController *mapiPadVC = [[MapiPadViewController alloc] init];
         [self.window addSubview:mapiPadVC.view];
         [self.window makeKeyAndVisible];
         
-        [mapiPadVC release];
+        /**
+         releasing the view controller was giving deallocated instance
+         **/
+       // [mapiPadVC release];
         
 	}
     

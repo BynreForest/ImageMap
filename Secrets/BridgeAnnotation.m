@@ -1,26 +1,20 @@
 //
-//  Annotation.m
+//  BridgeAnnotation.m
 //  Secrets
 //
-//  Created by Gaynor, Brendan on 4/4/11.
+//  Created by Gaynor, Brendan on 4/6/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Annotation.h"
+#import "BridgeAnnotation.h"
 
-
-@implementation Annotation
-@synthesize annotationDesc;
-@synthesize latitude,longitude;
-@synthesize category;
-
-
+@implementation BridgeAnnotation
 
 - (CLLocationCoordinate2D)coordinate;
 {
     CLLocationCoordinate2D theCoordinate;
-    theCoordinate.latitude = 37.786996;
-    theCoordinate.longitude = -96.419281;
+    theCoordinate.latitude = 37.810000;
+    theCoordinate.longitude = -122.477989;
     return theCoordinate; 
 }
 
@@ -36,11 +30,9 @@
     return @"Opened: May 27, 1937";
 }
 
-
 - (void)dealloc
 {
     [super dealloc];
 }
-
 
 @end
