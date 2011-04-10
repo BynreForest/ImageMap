@@ -10,20 +10,23 @@
 #import <MapKit/MapKit.h>
 #import "Model.h"
 
+@class DetailViewController;
 
 @interface MapiPhoneViewController : UIViewController <MKMapViewDelegate> {
-   MKMapView *mapView;
+    MKMapView *mapView;
     Model *model;
     NSMutableArray *mapAnnotations;
-    
+    DetailViewController *detailViewController;
     
 }
 
 
-
+@property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
 
 - (void)gotoLocation;
++ (CGFloat)annotationPadding;
++ (CGFloat)calloutHeight;
 
 @end

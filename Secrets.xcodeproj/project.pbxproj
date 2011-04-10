@@ -39,6 +39,9 @@
 		626DAFB2134A125200FC9C6D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626DAFB1134A125200FC9C6D /* CoreLocation.framework */; };
 		626DAFBD134A3D6E00FC9C6D /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DAFBC134A3D6B00FC9C6D /* Annotation.m */; };
 		626DAFCF134ABE4B00FC9C6D /* sf.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DAFCE134ABE4B00FC9C6D /* sf.png */; };
+		62E221EA135245FB0013805F /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E221E9135245FB0013805F /* flag.png */; };
+		62E221EE13524C440013805F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E221EC13524C420013805F /* DetailViewController.m */; };
+		62E221EF13524C440013805F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62E221ED13524C440013805F /* DetailViewController.xib */; };
 		62EE67A4134D4E56003BE97C /* BridgeAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE67A3134D4E54003BE97C /* BridgeAnnotation.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +100,10 @@
 		626DAFBB134A3D6A00FC9C6D /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		626DAFBC134A3D6B00FC9C6D /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		626DAFCE134ABE4B00FC9C6D /* sf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sf.png; sourceTree = "<group>"; };
+		62E221E9135245FB0013805F /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		62E221EB13524C420013805F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		62E221EC13524C420013805F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		62E221ED13524C440013805F /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		62EE67A2134D4E54003BE97C /* BridgeAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeAnnotation.h; sourceTree = "<group>"; };
 		62EE67A3134D4E54003BE97C /* BridgeAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +219,9 @@
 				626DAEDB13474ACA00FC9C6D /* MapiPhoneViewController.h */,
 				626DAEDC13474ACA00FC9C6D /* MapiPhoneViewController.m */,
 				626DAEDD13474ACA00FC9C6D /* MapiPhoneViewController.xib */,
+				62E221EB13524C420013805F /* DetailViewController.h */,
+				62E221EC13524C420013805F /* DetailViewController.m */,
+				62E221ED13524C440013805F /* DetailViewController.xib */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -256,6 +266,7 @@
 		626DAFD0134ABE5B00FC9C6D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				62E221E9135245FB0013805F /* flag.png */,
 				626DAFCE134ABE4B00FC9C6D /* sf.png */,
 			);
 			name = images;
@@ -314,6 +325,8 @@
 				626DAEDF13474ACA00FC9C6D /* MapiPhoneViewController.xib in Resources */,
 				626DAEE413474BA000FC9C6D /* MapiPadViewController.xib in Resources */,
 				626DAFCF134ABE4B00FC9C6D /* sf.png in Resources */,
+				62E221EA135245FB0013805F /* flag.png in Resources */,
+				62E221EF13524C440013805F /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +358,7 @@
 				626DAFB0134A122800FC9C6D /* Location.m in Sources */,
 				626DAFBD134A3D6E00FC9C6D /* Annotation.m in Sources */,
 				62EE67A4134D4E56003BE97C /* BridgeAnnotation.m in Sources */,
+				62E221EE13524C440013805F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,9 @@
 //
 
 #import "MapiPhoneViewController.h"
+#import "Annotation.h"
 #import "BridgeAnnotation.h"
+#import "DetailViewController.h"
 
 enum
 {
@@ -19,6 +21,19 @@ enum
 @implementation MapiPhoneViewController
 @synthesize mapView;
 @synthesize mapAnnotations;
+@synthesize detailViewController;
+
+#pragma mark -
+
++ (CGFloat)annotationPadding;
+{
+    return 10.0f;
+}
++ (CGFloat)calloutHeight;
+{
+    return 40.0f;
+}
+
 
 - (void)dealloc
 {
@@ -44,10 +59,11 @@ enum
     self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
     
     // annotation for Golden Gate Bridge
-    BridgeAnnotation *bridgeAnnotation = [[BridgeAnnotation alloc] init];
-    [self.mapAnnotations insertObject:bridgeAnnotation atIndex:0];
-    [bridgeAnnotation release];
+    Annotation *annotation = [[Annotation alloc] init];
+    //[self.mapView addAnnotation:bridgeAnnotation];
+    [mapAnnotations addObject:annotation];
     
+    [self.mapView addAnnotations:mapAnnotations];    
     [self gotoLocation];
 }
 
@@ -68,10 +84,71 @@ enum
    //  NSLog(@"self.mapAnnotations %@", self.mapView);
 }
 
+#pragma mark -
+#pragma mark MKMapViewDelegate
+
+- (void)showDetails:(id)sender
+{
+    // the detail view does not want a toolbar so hide it
+   // [self.navigationController setToolbarHidden:YES animated:NO];
+    
+    [self.navigationController pushViewController:self.detailViewController animated:YES];
+}
+
+
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     NSLog(@"hit delegate");
-    return  nil;
+    if ([annotation isKindOfClass:[Annotation class]])   // for City of San Francisco
+    {
+        static NSString* AnnotationIdentifier = @"AnnotationIdentifier";
+        MKPinAnnotationView* pinView =
+        (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationIdentifier];
+        
+        if (!pinView)
+        {
+            MKAnnotationView *annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                                             reuseIdentifier:AnnotationIdentifier] autorelease];
+            annotationView.canShowCallout = YES;
+            
+            UIImage *flagImage = [UIImage imageNamed:@"flag.png"];
+            
+            CGRect resizeRect;
+            
+            resizeRect.size = flagImage.size;
+            CGSize maxSize = CGRectInset(self.view.bounds,
+                                         [MapiPhoneViewController annotationPadding],
+                                         [MapiPhoneViewController annotationPadding]).size;
+            maxSize.height -= self.navigationController.navigationBar.frame.size.height + [MapiPhoneViewController calloutHeight];
+            if (resizeRect.size.width > maxSize.width)
+                resizeRect.size = CGSizeMake(maxSize.width, resizeRect.size.height / resizeRect.size.width * maxSize.width);
+            if (resizeRect.size.height > maxSize.height)
+                resizeRect.size = CGSizeMake(resizeRect.size.width / resizeRect.size.height * maxSize.height, maxSize.height);
+            
+            resizeRect.origin = (CGPoint){0.0f, 0.0f};
+            UIGraphicsBeginImageContext(resizeRect.size);
+            [flagImage drawInRect:resizeRect];
+            UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            annotationView.image = resizedImage;
+            annotationView.opaque = NO;
+            
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            [rightButton addTarget:self
+                            action:@selector(showDetails:)
+                  forControlEvents:UIControlEventTouchUpInside];
+            annotationView.rightCalloutAccessoryView = rightButton;
+            
+            return annotationView;
+        }
+        else
+        {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+
+    }
 }
 
 

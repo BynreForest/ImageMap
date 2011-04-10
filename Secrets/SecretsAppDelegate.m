@@ -12,6 +12,7 @@
 
 @implementation SecretsAppDelegate
 
+@synthesize iPhoneNavController;
 
 @synthesize window=_window;
 
@@ -23,19 +24,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     // Override point for customization after application launch.
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 	{
-		// load the content controller object for Phone-based devices
-        MapiPhoneViewController *mapiPhoneVC = [[MapiPhoneViewController alloc] init];
-        [self.window addSubview:mapiPhoneVC.view];
-        [self.window makeKeyAndVisible];
-        
-        /**
-         releasing the view controller was giving deallocated instance
-         **/
-       // [mapiPhoneVC release];
-        
+		        
+        [self.window addSubview:iPhoneNavController.view];
+
 	}
 	else
 	{

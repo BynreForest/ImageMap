@@ -1,17 +1,15 @@
 //
-//  MapiPadViewController.m
+//  DetailViewController.m
 //  Secrets
 //
-//  Created by Gaynor, Brendan on 4/2/11.
+//  Created by Gaynor, Brendan on 4/10/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "MapiPadViewController.h"
-#import "Annotation.h"
+#import "DetailViewController.h"
 
 
-@implementation MapiPadViewController
-@synthesize mapView;
+@implementation DetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,38 +37,9 @@
 
 - (void)viewDidLoad
 {
-    self.mapView.delegate = self;
     [super viewDidLoad];
-    
-    mapAnnotations = [[NSMutableArray alloc] init];
-    
-    /*
-     show all world in view
-     */
-    MKCoordinateRegion region;
-    region.center.latitude=0.0f;
-    region.center.longitude=0.0f;
-    region.span.latitudeDelta=180.0f;
-    region.span.longitudeDelta=360.0f;
-    [mapView setRegion:region];
-    
-    [mapView setRegion:[mapView regionThatFits:region] animated:TRUE];
-    
     // Do any additional setup after loading the view from its nib.
-    
-    Annotation *annotation = [[Annotation alloc] init];
-    //[self.mapView addAnnotation:bridgeAnnotation];
-    [mapAnnotations addObject:annotation];
-    
-    [self.mapView addAnnotations:mapAnnotations];
 }
-
-- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    NSLog(@"hit delegate");
-    return  nil;
-}
-
 
 - (void)viewDidUnload
 {
@@ -82,7 +51,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end
