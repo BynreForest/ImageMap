@@ -14,7 +14,7 @@
 
 @implementation Model
 @synthesize managedObjectContext;
-@synthesize annotationArray;
+@synthesize pinArray;
 
 
 - (id) init 
@@ -23,14 +23,21 @@
     if(self) {
     
     }
+    SecretsAppDelegate *sad = [[UIApplication sharedApplication] delegate];
+    
+    managedObjectContext = sad.managedObjectContext;
+    
+    
     return self;
 }
 
--(void) updateData
+/**
+ After the NSNotification has been sent notifying of database udpate completion, this function can 
+ be called to retreive the pins for the current map
+ **/
+-(NSArray *) getPinData
 {
-    SecretsAppDelegate *sra = [[UIApplication sharedApplication] delegate];
     
-    managedObjectContext = sra.managedObjectContext;
     
     NSEntityDescription *secretsEntity = [NSEntityDescription entityForName:@"SecretEntity" inManagedObjectContext:managedObjectContext];
     
@@ -40,10 +47,34 @@
     
     NSError *error;
     
-    annotationArray = [managedObjectContext executeFetchRequest:request error:&error];
+    pinArray = [managedObjectContext executeFetchRequest:request error:&error];
     
     [request release];
+    
+    return pinArray;
 }
+
+/**
+ This function will be called each time the user iterates to another map representing another day
+ **/
+
+-(void) updateDatabase
+{
+	
+	// Build the url string 
+	NSString *urlString = [NSString stringWithFormat:@"http://sodapoptoons.com/secretsapp/secretdata.php"];
+	
+	// Create NSURL string from formatted string
+	NSURL *url = [NSURL URLWithString:urlString];
+	
+	// Setup and start async download
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL: url];
+	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+	[connection release];
+	[request release];
+    
+}
+
 
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
@@ -51,6 +82,8 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *secretsEntity = [NSEntityDescription entityForName:@"SecretEntity" inManagedObjectContext:managedObjectContext];
     [request setEntity:secretsEntity];
+    
+    NSLog(@"Request: %@", request);
     
     NSError *error;
     
@@ -74,6 +107,8 @@
     {
         jsonString = [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
+        NSLog(@"jsonString: %@", jsonString);
+        
     } else {
         
         NSString *content = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
@@ -83,11 +118,17 @@
         [content release];
     }
     
+    //NSDictionary* myJsonParsed;
+   // [NSNumber numberWithInt:[[myJsonParsed valueForKey:@"stringOrInt"] intValue]];
+    
     /**Create a dictionary from the JSON String**/
     NSDictionary *results = [jsonString JSONValue];
     
     for (id key in results) {
         NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:@"SecretEntity" inManagedObjectContext:managedObjectContext];
+        
+        
+        
         [managedObject setValuesForKeysWithDictionary:key];
         
         NSError *error;
@@ -104,6 +145,7 @@
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
+
     [jsonString release];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Processed" object:nil];
 }

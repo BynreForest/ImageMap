@@ -13,14 +13,15 @@
     
     NSMutableString *jsonString;
     NSManagedObjectContext *managedObjectContext;
-    NSArray *annotationArray;
+    NSArray *pinArray;
     
 }
 
 @property(nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property(nonatomic, retain) NSArray *annotationArray;
+@property(nonatomic, retain) NSArray *pinArray;
 
--(void) updateData;
+-(NSArray *) getPinData;
+-(void) updateDatabase;
 -(id) init;
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection;

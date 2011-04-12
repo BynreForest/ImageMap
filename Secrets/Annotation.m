@@ -11,7 +11,7 @@
 
 @implementation Annotation
 @synthesize annotationDesc;
-@synthesize latitude,longitude;
+@synthesize lat,lon;
 @synthesize category;
 
 
@@ -19,8 +19,8 @@
 - (CLLocationCoordinate2D)coordinate;
 {
     CLLocationCoordinate2D theCoordinate;
-    theCoordinate.latitude = 37.786996;
-    theCoordinate.longitude = -122.419281;
+    theCoordinate.latitude = lat;
+    theCoordinate.longitude = lon;
     return theCoordinate; 
 }
 

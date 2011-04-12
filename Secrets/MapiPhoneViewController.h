@@ -17,6 +17,7 @@
     Model *model;
     NSMutableArray *mapAnnotations;
     DetailViewController *detailViewController;
+    NSManagedObjectContext *managedObjectContext;
     
 }
 

@@ -10,6 +10,8 @@
 #import "Annotation.h"
 #import "BridgeAnnotation.h"
 #import "DetailViewController.h"
+#import "SecretEntity.h"
+#import "SecretsAppDelegate.h"
 
 enum
 {
@@ -55,6 +57,16 @@ enum
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    SecretsAppDelegate *sad = [[UIApplication sharedApplication] delegate];
+    
+    managedObjectContext = sad.managedObjectContext;
+    
+    //Register to receive a notification when the model has been updated 
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(RecordsUpdated:) 
+												 name:@"Processed" 
+											   object:nil];
+    /*
     // create out annotations array (in this example only 2)
     self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
     
@@ -65,6 +77,7 @@ enum
     
     [self.mapView addAnnotations:mapAnnotations];    
     [self gotoLocation];
+     */
 }
 
 - (void)gotoLocation
@@ -150,6 +163,66 @@ enum
 
     }
 }
+
+#pragma mark -
+#pragma mark NSNotification selector
+
+-(void)	RecordsUpdated:(NSNotification*)notfication
+{
+    MKCoordinateRegion newRegion;
+    newRegion.center.latitude = 37.786996;
+    newRegion.center.longitude = -122.440100;
+    newRegion.span.latitudeDelta = 0.112872;
+    newRegion.span.longitudeDelta = 0.109863;
+    
+    [self.mapView setRegion:newRegion animated:YES];
+
+	NSLog(@"iPhone Map records updated");
+    mapView.delegate = self;
+    
+    self.mapAnnotations = [[NSMutableArray alloc] init];
+	
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *secretsEntity = [NSEntityDescription entityForName:@"SecretEntity" inManagedObjectContext:managedObjectContext];
+    [request setEntity:secretsEntity];
+    
+    NSLog(@"Request: %@", request);
+    
+    NSError *error;
+    
+    NSArray *items = [managedObjectContext executeFetchRequest:request error:&error];
+    [request release];
+	
+	for(int i = 0; i < [items count]; i++)
+	{
+		NSLog(@"Map Data Loop");	
+        
+		SecretEntity *se = (SecretEntity *)[items objectAtIndex:i];
+		
+		double tmpLat = [[se lat] doubleValue];
+		double tmpLon = [[se lon] doubleValue];
+		
+		Annotation *annotation = [[Annotation alloc] init];
+		annotation.lat = tmpLat;
+		annotation.lon = tmpLon;
+		//annotation.annotationTitle = [se salesfirstname];
+		//annotation.annotationSubTitle = [se saleslastname];
+		
+		[self.mapAnnotations addObject:annotation];
+		
+		[annotation release];
+		
+	}
+	
+	/**
+	 mapView adds the annotationsArray which holds the ErbituxAnnotations
+	 **/
+	[self.mapView addAnnotations:mapAnnotations];
+	
+	[mapAnnotations release];
+}
+
 
 
 - (void)viewDidUnload

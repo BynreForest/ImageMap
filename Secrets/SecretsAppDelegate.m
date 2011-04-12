@@ -9,6 +9,7 @@
 #import "SecretsAppDelegate.h"
 #import "MapiPadViewController.h"
 #import "MapiPhoneViewController.h"
+#import "Model.h"
 
 @implementation SecretsAppDelegate
 
@@ -24,6 +25,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    Model *model = [[Model alloc] init];
+    [model updateDatabase];
+    
     
     // Override point for customization after application launch.
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)

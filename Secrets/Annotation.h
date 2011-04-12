@@ -13,15 +13,15 @@
 @interface Annotation : NSObject <MKAnnotation> {
     UIImage *image;
 	NSString *annotationDesc;
-	double latitude;
-	double longitude;
+	double lat;
+	double lon;
     NSString *category;
 	
 }
 
 @property (nonatomic, copy) NSString *annotationDesc;
 @property (nonatomic, copy) NSString *category;
-@property double latitude;
-@property double longitude;
+@property double lat;
+@property double lon;
 
 @end
