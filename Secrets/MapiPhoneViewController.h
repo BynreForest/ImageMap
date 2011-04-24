@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+
 #import "Model.h"
 
 @class DetailViewController;
@@ -29,5 +30,6 @@
 - (void)gotoLocation;
 + (CGFloat)annotationPadding;
 + (CGFloat)calloutHeight;
+
 
 @end

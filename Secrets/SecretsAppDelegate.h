@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 
 @interface SecretsAppDelegate : NSObject <UIApplicationDelegate> {
@@ -25,5 +27,6 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+-(IBAction)showSMSPicker:(id)sender;
 
 @end

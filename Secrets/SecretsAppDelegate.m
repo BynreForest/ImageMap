@@ -10,6 +10,7 @@
 #import "MapiPadViewController.h"
 #import "MapiPhoneViewController.h"
 #import "Model.h"
+#import "FormiPhoneViewController.h"
 
 @implementation SecretsAppDelegate
 
@@ -22,6 +23,21 @@
 @synthesize managedObjectModel=__managedObjectModel;
 
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
+
+// Displays an SMS composition interface inside the application. 
+-(IBAction)showSMSPicker:(id)sender
+{
+	//MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
+	//picker.messageComposeDelegate = self;
+    
+    FormiPhoneViewController *formiPhone = [[FormiPhoneViewController alloc] init];
+	
+	[iPhoneNavController presentModalViewController:formiPhone animated:YES];
+	[formiPhone release];
+    
+}
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

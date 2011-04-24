@@ -8,7 +8,6 @@
 
 #import "MapiPhoneViewController.h"
 #import "Annotation.h"
-#import "BridgeAnnotation.h"
 #import "DetailViewController.h"
 #import "SecretEntity.h"
 #import "SecretsAppDelegate.h"
@@ -85,15 +84,16 @@ enum
     NSLog(@"1");
     mapView.delegate = self;
     // start off by default in San Francisco
-    MKCoordinateRegion newRegion;
-    newRegion.center.latitude = 37.786996;
-    newRegion.center.longitude = -122.440100;
-    newRegion.span.latitudeDelta = 0.112872;
-    newRegion.span.longitudeDelta = 0.109863;
+//    // go to North America
+//    MKCoordinateRegion newRegion;
+//    newRegion.center.latitude = 37.37;
+//    newRegion.center.longitude = -96.24;
+//    newRegion.span.latitudeDelta = 28.49;
+//    newRegion.span.longitudeDelta = 31.025;
+//	
+//    [self.mapView setRegion:newRegion animated:YES];
     
-    [self.mapView setRegion:newRegion animated:YES];
-    
-    [self.mapView addAnnotations:self.mapAnnotations];
+    //[self.mapView addAnnotations:self.mapAnnotations];
    //  NSLog(@"self.mapAnnotations %@", self.mapView);
 }
 
@@ -105,7 +105,25 @@ enum
     // the detail view does not want a toolbar so hide it
    // [self.navigationController setToolbarHidden:YES animated:NO];
     
+    
+   
+    
+    
+    
+    
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
+    
+    
     [self.navigationController pushViewController:self.detailViewController animated:YES];
+    NSLog(@"callout annotation.title = %@", view.annotation);
+    Annotation *_annotation = view.annotation;
+    NSLog(@"callout annotation.p = %@", _annotation.pk);
+    self.detailViewController.pk =  _annotation.pk;
+    self.detailViewController.textView.text = _annotation.annotationTitle;
+    
 }
 
 
@@ -115,8 +133,8 @@ enum
     if ([annotation isKindOfClass:[Annotation class]])   // for City of San Francisco
     {
         static NSString* AnnotationIdentifier = @"AnnotationIdentifier";
-        MKPinAnnotationView* pinView =
-        (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationIdentifier];
+        MKAnnotationView* pinView =
+        (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationIdentifier];
         
         if (!pinView)
         {
@@ -164,18 +182,21 @@ enum
     }
 }
 
+
 #pragma mark -
 #pragma mark NSNotification selector
 
 -(void)	RecordsUpdated:(NSNotification*)notfication
 {
+    // go to North America
     MKCoordinateRegion newRegion;
-    newRegion.center.latitude = 37.786996;
-    newRegion.center.longitude = -122.440100;
-    newRegion.span.latitudeDelta = 0.112872;
-    newRegion.span.longitudeDelta = 0.109863;
+    newRegion.center.latitude = 37.37;
+    newRegion.center.longitude = -96.24;
+    newRegion.span.latitudeDelta = 28.49;
+    newRegion.span.longitudeDelta = 31.025;
+	
+    [self.mapView setRegion:newRegion animated:YES];    
     
-    [self.mapView setRegion:newRegion animated:YES];
 
 	NSLog(@"iPhone Map records updated");
     mapView.delegate = self;
@@ -202,12 +223,14 @@ enum
 		
 		double tmpLat = [[se lat] doubleValue];
 		double tmpLon = [[se lon] doubleValue];
+        NSNumber *pk = [se pk];
 		
 		Annotation *annotation = [[Annotation alloc] init];
 		annotation.lat = tmpLat;
 		annotation.lon = tmpLon;
-		//annotation.annotationTitle = [se salesfirstname];
-		//annotation.annotationSubTitle = [se saleslastname];
+        annotation.pk = pk;
+		annotation.annotationTitle = [se descriptions];
+		annotation.annotationSubTitle = [se category];
 		
 		[self.mapAnnotations addObject:annotation];
 		

@@ -13,6 +13,8 @@
 @synthesize annotationDesc;
 @synthesize lat,lon;
 @synthesize category;
+@synthesize pk;
+@synthesize annotationTitle, annotationSubTitle;
 
 
 
@@ -24,16 +26,22 @@
     return theCoordinate; 
 }
 
+- (NSNumber *)pk
+{
+    return pk;
+}
+
+
 // required if you set the MKPinAnnotationView's "canShowCallout" property to YES
 - (NSString *)title
 {
-    return @"Golden Gate Bridge";
+    return annotationTitle;
 }
 
 // optional
 - (NSString *)subtitle
 {
-    return @"Opened: May 27, 1937";
+    return annotationSubTitle;
 }
 
 
